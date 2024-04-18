@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Mosques;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,9 +14,39 @@ class MosquesController extends Controller
 {
     public function edit(Request $request): Response
     {
-        return Inertia::render('Profile/Edit', [
+        return Inertia::render('Mosques/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
+            'mosques' => Mosques::where('user_id', $request->user()->id)->get(),            
         ]);
+    }
+
+    public function create(Request $request): RedirectResponse
+    {
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'fajr_time' => 'required|string|max:10',
+            'dhuhr_time' => 'required|string|max:10',
+            'asr_time' => 'required|string|max:10',
+            'maghrib_time' => 'required|string|max:10',
+            'isha_time' => 'required|string|max:10',
+            'jummah_time' => 'required|string|max:10',
+            
+        ]);
+
+        $user = Mosques::create([
+            'name' => $request->name,
+            'fajr_time' => $request->fajr_time,
+            'dhuhr_time' => $request->dhuhr_time,
+            'asr_time' => $request->asr_time,
+            'maghrib_time' => $request->maghrib_time,
+            'isha_time' => $request->isha_time,
+            'jummah_time' => $request->jummah_time,
+            'user_id' => $request->user()->id,
+        ]);
+
+
+        return Redirect::route('mosques.edit');
     }
 }
