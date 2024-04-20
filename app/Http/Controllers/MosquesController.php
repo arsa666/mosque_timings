@@ -17,7 +17,7 @@ class MosquesController extends Controller
         return Inertia::render('Mosques/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
-            'mosques' => Mosques::where('user_id', $request->user()->id)->get(),            
+            'mosques' => Mosques::where('user_id', $request->user()->id)->get(),           
         ]);
     }
 
@@ -48,5 +48,36 @@ class MosquesController extends Controller
 
 
         return Redirect::route('mosques.edit');
+    }
+
+    public function update(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'fajr_time' => 'required|string|max:10',
+            'dhuhr_time' => 'required|string|max:10',
+            'asr_time' => 'required|string|max:10',
+            'maghrib_time' => 'required|string|max:10',
+            'isha_time' => 'required|string|max:10',
+            'jummah_time' => 'required|string|max:10',
+        ]);
+
+        $mosque = Mosques::find($request->id);
+
+        if ($mosque->user_id !== $request->user()->id) {
+            abort(403);
+        }
+
+        $mosque->name = $request->name;
+        $mosque->fajr_time = $request->fajr_time;
+        $mosque->dhuhr_time = $request->dhuhr_time;
+        $mosque->asr_time = $request->asr_time;
+        $mosque->maghrib_time = $request->maghrib_time;
+        $mosque->isha_time = $request->isha_time;
+        $mosque->jummah_time = $request->jummah_time;
+        $mosque->save();
+
+        return Redirect::route('mosques.edit');
+        
     }
 }
