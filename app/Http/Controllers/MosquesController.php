@@ -80,4 +80,17 @@ class MosquesController extends Controller
         return Redirect::route('mosques.edit');
         
     }
+
+    public function show($id): Response
+    {
+        $mosque = Mosques::find($id);
+
+        if ($mosque === null) {
+            abort(404);
+        }
+
+        return Inertia::render('Mosques/Show', [
+            'mosque' => $mosque,
+        ]);
+    }
 }

@@ -31,9 +31,9 @@ const form = useForm({
 });
 
 
-const copyToClipboard = (link) => {
-        navigator.clipboard.writeText(link);
-        alert('Link copied to clipboard!');
+const goToPage = (link) => {
+    //redirect to the link
+    window.location.href = link;
 };
 const editMosque = (mosque) => {
     showEditModal.value = true;
@@ -63,7 +63,7 @@ const updateMosque = () => {
             <h2 class="text-lg font-medium text-gray-900">Mosque list</h2>
         </header>
     <div>
-
+        
         <table v-if="mosques.length > 0" class="table-fixed text-left">
             <thead>
             <tr>
@@ -88,7 +88,7 @@ const updateMosque = () => {
                 <td class="px-1 w-1/9">{{ mosque.maghrib_time }}</td>
                 <td class="px-1 w-1/9">{{ mosque.isha_time }}</td>
                 <td class="px-1 w-1/9">{{ mosque.jummah_time }}</td>
-                <td class="px-1 w-1/9"  v-on:click="copyToClipboard(`url/${mosque.id}`)">Copy</td>
+                <td class="px-1 w-1/9"  v-on:click="goToPage(`mosque/${mosque.id}`)">Go to page</td>
                 <td class="px-1 w-1/9"  v-on:click="editMosque(mosque)">Edit</td>
             </tr>
             </tbody>
