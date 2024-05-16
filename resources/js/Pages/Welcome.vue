@@ -34,6 +34,8 @@ function handleImageError() {
             class="absolute -left-20 top-0 max-w-[877px]"
             src="https://laravel.com/assets/img/welcome/background.svg"
         />
+    
+        <img src="/img/mosque_img.png" class="absolute right-0 bottom-0 max-w-[500px]" />
         <div
             class="relative min-h-screen flex flex-col items-center justify-start selection:bg-[#FF2D20] selection:text-white"
         >
@@ -73,9 +75,7 @@ function handleImageError() {
                         <div
                             class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800"
                         >
-                           
-
-                            <div class="pt-3 sm:pt-5">
+                            <div class="pt-3 sm:pt-5 text-white">
                                 <h1>Assalamualeikum!</h1>
                                 <p> Welcome to Salah App where you can display the prayer times for your mosque.</p>
                                 <p> Simply register and account, add your mosque name and set your salah times.</p>
@@ -84,10 +84,6 @@ function handleImageError() {
                         </div>
                     </div>
                 </main>
-
-                <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                   Salah App &copy; 2024
-                </footer>
             </div>
         </div>
     </div>

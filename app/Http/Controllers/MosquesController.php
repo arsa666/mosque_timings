@@ -45,8 +45,7 @@ class MosquesController extends Controller
             'jummah_time' => $request->jummah_time,
             'user_id' => $request->user()->id,
         ]);
-
-
+        
         return Redirect::route('mosques.edit');
     }
 

@@ -37,8 +37,10 @@ const copyToClipboard = () => {
             class="absolute -left-20 top-0 max-w-[877px]"
             src="https://laravel.com/assets/img/welcome/background.svg"
         />
+        <img src="/img/mosque_img.png" class="absolute right-0 bottom-0 max-w-[500px]" />
+
         <div
-            class="relative min-h-screen flex flex-col items-center justify-start selection:bg-[#FF2D20] selection:text-white"
+            class="relative min-h-screen flex flex-col items-center justify-start selection:bg-[#FF2D20] text-white"
         >
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <header class="grid grid-cols-1 items-center gap-2 py-10 lg:grid-cols-1">
@@ -64,37 +66,37 @@ const copyToClipboard = () => {
                     <div class="flex space-y-4">
                         <div class="flex">
                                 <span class="font-semibold">Fajr:</span>
-                                <span>{{ mosque.fajr_time }}</span>
+                                <span class="px-2">{{ mosque.fajr_time }}</span>
                         </div>
                     </div>
                     <div class="flex space-y-4">
                         <div class="flex">
                                 <span class="font-semibold">Dhuhr:</span>
-                                <span>{{ mosque.dhuhr_time }}</span>
+                                <span class="px-2">{{ mosque.dhuhr_time }}</span>
                         </div>
                     </div>
                     <div class="flex space-y-4">
                         <div class="flex">
                                 <span class="font-semibold">Asr:</span>
-                                <span>{{ mosque.asr_time }}</span>
+                                <span class="px-2">{{ mosque.asr_time }}</span>
                         </div>
                     </div>
                     <div class="flex space-y-4">
                         <div class="flex">
                                 <span class="font-semibold">Maghrib:</span>
-                                <span>{{ mosque.maghrib_time }}</span>
+                                <span class="px-2">{{ mosque.maghrib_time }}</span>
                         </div>
                     </div>
                     <div class="flex space-y-4">
                         <div class="flex">
                                 <span class="font-semibold">Isha:</span>
-                                <span>{{ mosque.isha_time }}</span>
+                                <span class="px-2">{{ mosque.isha_time }}</span>
                         </div>
                     </div>
                     <div class="flex space-y-4">
                         <div class="flex">
                                 <span class="font-semibold">Jummah:</span>
-                                <span>{{ mosque.jummah_time }}</span>
+                                <span class="px-2">{{ mosque.jummah_time }}</span>
                         </div>
                     </div>
 

@@ -88,7 +88,7 @@ const updateMosque = () => {
                 <td class="px-1 w-1/9">{{ mosque.maghrib_time }}</td>
                 <td class="px-1 w-1/9">{{ mosque.isha_time }}</td>
                 <td class="px-1 w-1/9">{{ mosque.jummah_time }}</td>
-                <td class="px-1 w-1/9"  v-on:click="goToPage(`mosque/${mosque.id}`)">Go to page</td>
+                <td class="px-1 w-1/9"  v-on:click="goToPage(`mosque/${mosque.id}`)">Show</td>
                 <td class="px-1 w-1/9"  v-on:click="editMosque(mosque)">Edit</td>
             </tr>
             </tbody>
